@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProfOaksKantoPokedex</name>
+    </assembly>
+    <members>
+        <member name="M:ProfOaksKantoPokedex.Controllers.AuthenticationController.Authenticate(ProfOaksKantoPokedex.Controllers.AuthenticationController.AuthenticationRequestBody)">
+            <summary>
+            Authenticate user of the API
+            </summary>
+            <param name="authenticationRequestBody"></param>
+            <returns>An ActionResult as a string</returns>
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Controllers.FilesController.GetFile(System.String)">
+            <summary>
+            Get a file
+            </summary>
+            <param name="fileId"></param>
+            <returns>An ActionResult as a PDF file for download</returns>
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Controllers.MovesLearntController.GetMovesLearnt(System.Int32)">
+            <summary>
+            Get a list of moves learnt by a specific Pokemon
+            </summary>
+            <param name="pokemonId">The id of the Pokemon to get</param>
+            <returns>An ActionResult</returns>
+            <response code="404">The Pokemon you are looking for could not be found</response>
+            <response code="200">List of moves learnt by the Pokemon</response>
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Controllers.MovesLearntController.GetOneMoveLearnt(System.Int32,System.Int32)">
+            <summary>
+            Get one move learnt by a sepcific Pokemon
+            </summary>
+            <param name="pokemonId">The id of the Pokemon to get</param>
+            <param name="movesLearntId">The move id you want to get</param>
+            <returns>An ActionResult</returns>
+            <response code="404">The Pokemon you are looking for could not be found</response>
+            <response code="200">Move learnt by Pokemon requested</response>
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Controllers.MovesLearntController.CreateMoveLearnt(System.Int32,ProfOaksKantoPokedex.Models.MovesLearntForCreationDto)">
+            <summary>
+            Create a new move for a specific Pokemon
+            </summary>
+            <param name="pokemonId">The id of the Pokemon to get</param>
+            <param name="movesLearnt">DTO body request to create a new move</param>
+            <returns>An ActionResult</returns>
+            <response code="404">The Pokemon you are looking for could not be found</response>
+            <response code="201">Success move created</response>
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Controllers.MovesLearntController.UpdateMoveLearnt(System.Int32,System.Int32,ProfOaksKantoPokedex.Models.MovesLearntForUpdateDto)">
+            <summary>
+            Fully update a moves details
+            </summary>
+            <param name="pokemonId">The id of the Pokemon to get</param>
+            <param name="movesLearntId">The move id you want to update</param>
+            <param name="movesLearnt">DTO body request to update move</param>
+            <returns>An ActionResult</returns>
+            <response code="404">The Pokemon you are looking for could not be found</response>
+            <response code="404">The Move you are looking for could not be found</response>
+            <response code="204">Move updated successfully</response>
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Controllers.MovesLearntController.PartiallyUpdateMovesLearnt(System.Int32,System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{ProfOaksKantoPokedex.Models.MovesLearntForUpdateDto})">
+            <summary>
+            Partially update deatils of a specific move
+            </summary>
+            <param name="pokemonId">The id of the Pokemon to get</param>
+            <param name="movesLearntId">The move id you want to partially update</param>
+            <param name="patchDocument">Json patch document to update move</param>
+            <returns>An ActionResult</returns>
+            <response code="404">The Pokemon you are looking for could not be found</response>
+            <response code="404">The Move you are looking for could not be found</response>
+            <response code="400">Request not submitted in the correct format</response>
+            <response code="400">Request not valid</response>
+            <response code="204">Move updated successfully</response>
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Controllers.MovesLearntController.DeleteMoveLearnt(System.Int32,System.Int32)">
+            <summary>
+            Delete a specific move learnt
+            </summary>
+            <param name="pokemonId">The id of the Pokemon to get</param>
+            <param name="movesLearntId">The move id you want to delete</param>
+            <returns>An ActionResult</returns>
+            <response code="404">The Pokemon you are looking for could not be found</response>
+            <response code="404">The Move you are looking for could not be found</response>
+            <response code="204">Move deleted successfully</response>
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Controllers.PokemonController.#ctor(ProfOaksKantoPokedex.Services.IProfOaksKantoPokedexRepository,AutoMapper.IMapper)">
+            <summary>
+            For the purpose of supressing XML warnings
+            </summary>
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Controllers.PokemonController.GetPokemon(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Get a Pokemon without any moves learnt attached
+            </summary>
+            <param name="name">The name of the Pokemon</param>
+            <param name="searchQuery">Please enter a query on the string search</param>
+            <param name="pageNumber">Which page number would you like to view</param>
+            <param name="pageSize">What is the size of the page</param>
+            <returns>An ActionResult</returns>
+            <response code="200">Returns the requested Pokemon without moves</response>
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Controllers.PokemonController.GetSinglePokemon(System.Int32,System.Boolean)">
+            <summary>
+            Get a Pokemon by Id
+            </summary>
+            <param name="id">The id of the Pokemon to get</param>
+            <param name="includeMovesLearnt">Whether or not to include the moves learnt</param>
+            <returns>An IActionResult</returns>
+            <response code="200">Returns the requested Pokemon</response>
+        </member>
+        <member name="T:ProfOaksKantoPokedex.Migrations.ProfOaksKantoPokedexInitialMigration">
+            <inheritdoc />
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Migrations.ProfOaksKantoPokedexInitialMigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Migrations.ProfOaksKantoPokedexInitialMigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Migrations.ProfOaksKantoPokedexInitialMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:ProfOaksKantoPokedex.Migrations.ProfOaksKantoPokedexDbAddDescription">
+            <inheritdoc />
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Migrations.ProfOaksKantoPokedexDbAddDescription.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Migrations.ProfOaksKantoPokedexDbAddDescription.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Migrations.ProfOaksKantoPokedexDbAddDescription.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:ProfOaksKantoPokedex.Migrations.DataSeed">
+            <inheritdoc />
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Migrations.DataSeed.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Migrations.DataSeed.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Migrations.DataSeed.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:ProfOaksKantoPokedex.Migrations.moveDeleteForDemo">
+            <inheritdoc />
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Migrations.moveDeleteForDemo.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Migrations.moveDeleteForDemo.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProfOaksKantoPokedex.Migrations.moveDeleteForDemo.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:ProfOaksKantoPokedex.Models.PokemonWithoutMovesLearntDto">
+            <summary>
+            A DTO for a Pokemon without any moves learnt attached
+            </summary>
+        </member>
+        <member name="P:ProfOaksKantoPokedex.Models.PokemonWithoutMovesLearntDto.Id">
+            <summary>
+            The id of the Pokemon
+            </summary>
+        </member>
+        <member name="P:ProfOaksKantoPokedex.Models.PokemonWithoutMovesLearntDto.Name">
+            <summary>
+            The name of the Pokemon
+            </summary>
+        </member>
+        <member name="P:ProfOaksKantoPokedex.Models.PokemonWithoutMovesLearntDto.Type">
+            <summary>
+            The target Pokemons typing
+            </summary>
+        </member>
+        <member name="P:ProfOaksKantoPokedex.Models.PokemonWithoutMovesLearntDto.Description">
+            <summary>
+            The description of the target Pokemon
+            </summary>
+        </member>
+        <member name="P:ProfOaksKantoPokedex.Models.PokemonWithoutMovesLearntDto.Ability">
+            <summary>
+            The unique ability of the target Pokemon
+            </summary>
+        </member>
+        <member name="P:ProfOaksKantoPokedex.Models.PokemonWithoutMovesLearntDto.BaseStatTotal">
+            <summary>
+            The base-stat total of the Pokemon
+            </summary>
+        </member>
+    </members>
+</doc>
